@@ -3,11 +3,11 @@
 $ cd rails-docker
 
 # build iamge from Dockerfile
-$ docker build -t rbenv .
+$ docker build -t rails .
 
 # run container from image
-$ docker run -it --name rbenv-container -d -p 3000:3000 rbenv
+$ docker run -it --name rails-container -d -p 3000:3000 rails
 
 # login to the container
-$ docker exec -it rbenv-container bin/zsh
+$ docker exec -it rails-container bin/zsh
 ```

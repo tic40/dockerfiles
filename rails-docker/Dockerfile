@@ -27,6 +27,12 @@ RUN \
   gem install --no-ri --no-rdoc rails && \
   gem install bundler --force
 
+# install nvm
+RUN \
+  git clone https://github.com/creationix/nvm.git ~/.nvm && \
+  source ~/.nvm/nvm.sh && \
+  nvm install stable
+
 RUN mkdir -p ~/repo/tic40
 RUN git clone https://github.com/tic40/dotfiles.git ~/repo/tic40/dotfiles
 
