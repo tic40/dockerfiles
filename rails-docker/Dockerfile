@@ -5,7 +5,7 @@ ARG ruby_ver="2.5.0"
 RUN yum -y update
 RUN yum -y install epel-release
 RUN yum -y install git make autoconf curl wget zsh vim
-RUN yum -y install gcc-c++ glibc-headers openssl-devel readline libyaml-devel readline-devel zlib zlib-devel sqlite-devel bzip2
+RUN yum -y install gcc-c++ glibc-headers openssl-devel readline libyaml-devel readline-devel zlib zlib-devel sqlite-devel bzip2 ruby-devel libffi-devel
 RUN yum clean all
 
 RUN git clone https://github.com/rbenv/rbenv.git /usr/local/rbenv
@@ -28,4 +28,6 @@ RUN \
   gem install bundler --force
 
 RUN mkdir -p ~/repo/tic40
-RUN git clone https://github.com/tic40/dockerfiles.git ~/repo/tic40/dotfiles
+RUN git clone https://github.com/tic40/dotfiles.git ~/repo/tic40/dotfiles
+
+EXPOSE 3000
