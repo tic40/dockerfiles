@@ -27,6 +27,9 @@ RUN \
     php-opcache --nogpgcheck \
     php-bcmath
 
+# application directory
+RUN mkdir /app
+
 RUN mkdir -p ~/repo/tic40
 RUN git clone https://github.com/tic40/dotfiles.git ~/repo/tic40/dotfiles
 
