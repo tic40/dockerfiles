@@ -17,9 +17,7 @@ RUN yum install -y mod24_ssl.x86_64
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php
 
-RUN mkdir -p ~/repo/tic40
-RUN git clone https://github.com/tic40/dotfiles.git ~/repo/tic40/dotfiles
-
+#RUN mkdir /repo/tic40
 RUN mkdir /app
 
 # timezone setting
