@@ -1,0 +1,7 @@
+web:
+  build: .
+  ports:
+   - "8080:8080"
+  volumes:
+   - /Users/tic40/Dropbox/Repo:/repo
+  tty: true
