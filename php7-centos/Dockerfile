@@ -27,10 +27,18 @@ RUN \
     php-opcache --nogpgcheck \
     php-bcmath
 
+# install mysql 5.7
+RUN \
+  yum localinstall -y http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm \
+  yum install -y mysql-community-server
+
 # application directory
 RUN mkdir /app
 
-RUN mkdir -p ~/repo/tic40
-RUN git clone https://github.com/tic40/dotfiles.git ~/repo/tic40/dotfiles
+# timezone setting
+RUN cp /etc/localtime /etc/localtime.org
+RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 EXPOSE 8080
+
+CMD ["/sbin/init"]
