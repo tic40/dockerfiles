@@ -14,7 +14,6 @@ RUN /sbin/chkconfig --level 3 httpd on
 RUN yum install -y php56*
 RUN yum install -y mod24_ssl.x86_64
 
-#RUN mkdir /repo/tic40
 RUN mkdir /app
 WORKDIR /app
 
