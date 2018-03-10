@@ -27,13 +27,12 @@ RUN \
     php-opcache --nogpgcheck \
     php-bcmath
 
-# install mysql 5.7
-RUN \
-  yum localinstall -y http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm \
-  yum install -y mysql-community-server
-
 # application directory
 RUN mkdir /app
+WORKDIR /app
+
+# install composer
+RUN curl -sS https://getcomposer.org/installer | php
 
 # timezone setting
 RUN cp /etc/localtime /etc/localtime.org

@@ -14,11 +14,12 @@ RUN /sbin/chkconfig --level 3 httpd on
 RUN yum install -y php56*
 RUN yum install -y mod24_ssl.x86_64
 
-# install composer
-RUN curl -sS https://getcomposer.org/installer | php
-
 #RUN mkdir /repo/tic40
 RUN mkdir /app
+WORKDIR /app
+
+# install composer
+RUN curl -sS https://getcomposer.org/installer | php
 
 # timezone setting
 RUN cp /etc/localtime /etc/localtime.org

@@ -1,5 +1,4 @@
 FROM centos:7
-
 ARG ruby_ver="2.5.0"
 
 RUN yum -y update
@@ -33,7 +32,14 @@ RUN \
   source ~/.nvm/nvm.sh && \
   nvm install stable
 
-RUN mkdir -p ~/repo/tic40
-RUN git clone https://github.com/tic40/dotfiles.git ~/repo/tic40/dotfiles
+# timezone setting
+RUN cp /etc/localtime /etc/localtime.org
+RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
+# application directory
+RUN mkdir /app
+WORKDIR /app
 
 EXPOSE 3000
+
+CMD ["/sbin/init"]

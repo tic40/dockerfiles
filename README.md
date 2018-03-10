@@ -6,10 +6,24 @@ this is a repository to be stored my docker files
 
 ## BASIC USAGE
 
-### DOCKERFILE
-```
+### DOCKER COMPOSE
+
+```sh
+# build and start
+$ docker-compose up
+
+# start
+$ docker-compose start
+# stop
+$ docker-compose stop
+
 # build
-$ cd {directory}
+$ docker-compose build
+```
+
+### DOCKERFILE
+```sh
+# build
 $ docker build -t {image-name} .
 ```
 
@@ -21,10 +35,7 @@ $ docker run -it --name {container-name} {image-name}
 ```
 # create volume
 $ docker run -it --name {container-name} -v {local-path}:{container-path} {image-name}
-```
 
-### DOCKER-COMPOSE
-```
-$ cd {directory}
-$ docker-compose up
+# login
+$ docker exec -it {container-name} /bin/bash
 ```

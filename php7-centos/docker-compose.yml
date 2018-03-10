@@ -1,8 +1,21 @@
-web:
-  build: .
-  ports:
-   - "8080:8080"
-  volumes:
-   - /Users/tic40/Dropbox/Repo:/repo
-  tty: true
-  privileged: true
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - /Users/tic40/Dropbox/Repo:/repo
+    depends_on:
+      - db
+    tty: true
+    privileged: true
+
+  db:
+    image: mysql:5.7
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
