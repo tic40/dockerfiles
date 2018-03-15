@@ -32,7 +32,8 @@ RUN mkdir /app
 WORKDIR /app
 
 # install composer
-RUN curl -sS https://getcomposer.org/installer | php
+RUN curl -sS https://getcomposer.org/installer | php && \
+  mv composer.phar /usr/local/bin/composer
 
 # timezone setting
 RUN cp /etc/localtime /etc/localtime.org
