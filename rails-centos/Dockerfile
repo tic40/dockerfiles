@@ -1,5 +1,6 @@
 FROM centos:7
 ARG ruby_ver="2.5.0"
+ARG node_ver="stable"
 
 RUN yum -y update
 RUN yum -y install epel-release
@@ -30,7 +31,7 @@ RUN \
 RUN \
   git clone https://github.com/creationix/nvm.git ~/.nvm && \
   source ~/.nvm/nvm.sh && \
-  nvm install stable
+  nvm install ${node_ver}
 
 # timezone setting
 RUN cp /etc/localtime /etc/localtime.org
