@@ -28,10 +28,9 @@ RUN \
   gem install bundler --force
 
 # install nvm
-RUN \
-  git clone https://github.com/creationix/nvm.git ~/.nvm && \
-  source ~/.nvm/nvm.sh && \
-  echo 'source ~/.nvm/nvm.sh' >> .bashrc && \
+RUN git clone https://github.com/creationix/nvm.git ~/.nvm && \
+  . ~/.nvm/nvm.sh && \
+  echo '~/.nvm/nvm.sh' >> .bashrc && \
   nvm install ${node_ver}
 
 # timezone setting
